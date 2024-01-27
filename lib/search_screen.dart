@@ -24,7 +24,7 @@ class _SearchPageState extends State<SearchPage> {
     if (searchText.isEmpty) {
       _filteredList.addAll(_dataList);
     } else {
-
+      _filteredList.addAll(_dataList.where((item) => item.toLowerCase().contains(searchText.toLowerCase())));
     }
     setState(() {});
   }
@@ -52,7 +52,7 @@ class _SearchPageState extends State<SearchPage> {
                 ),
                 onPressed: () {
                   _textController.clear();
-                  // _filterList('');
+                   _filterList('');
                 },
               ),
               hintText: 'Search...',
